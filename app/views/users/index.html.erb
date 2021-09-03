@@ -1,0 +1,20 @@
+<h2> All users details are displayed here !</h2>
+<table>
+<tr>
+<th>Username</th>
+<th>email</th>
+<th colspan="3" >Action </th>
+
+</tr>
+<tr>
+<% @users.each do |user| %>
+    <td> <%= user.username %> </td>
+    <td> <%= user.email %> </td>
+   <td> <%= link_to "Show" , user_path(user) %> </td>
+   <% if logged_in? && user.username==current_user.username %>
+       <td> <%= link_to "Edit",  edit_user_path(user) %> </td>
+       <td><%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: "Are you sure "} %></td>
+   <% end %>    
+</tr>
+<% end %>
+</table>

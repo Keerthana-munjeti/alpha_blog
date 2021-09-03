@@ -1,0 +1,20 @@
+
+<p>User: <%=@user.username %></p>
+<p>Email: <%=@user.email%></p>
+
+<h3> articles by user are <%= pluralize(@articles.count, "article") %> </h3>
+<table>
+<tr>
+<th> Article</th>
+<th>Description </th>
+</tr>
+<tr>
+
+  <% @articles.each do |a| %>
+    <td>  <%= a.title %> </td>
+    <td>  <%= a.description %> </td>
+    </tr>
+    <% end %>
+
+
+</table>
